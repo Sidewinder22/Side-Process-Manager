@@ -30,3 +30,11 @@
 *.exe
 *.out
 *.app
+
+# Ecplise IDE
+.cproject
+.project
+.settings
+
+# Build dir
+build
