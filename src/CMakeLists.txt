@@ -1,3 +1,13 @@
 # src dir CMake
 
-add_executable(side-project-manager main.cpp)
+set(APP side-project-manager)
+set(LIB provider)
+
+add_subdirectory(provider)
+
+add_executable(${APP} main.cpp)
+
+target_link_libraries(${APP}
+	PRIVATE
+	${LIB}
+)

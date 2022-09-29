@@ -6,31 +6,32 @@
  */
 
 #include <iostream>
-#include <filesystem>
-#include <cctype>
-#include <regex>
+#include <thread>
+#include "ProcessDataProvider.hpp"
 
-bool isProcessDirs(const std::string& path)
+void showProcessDirNames()
 {
-	std::regex r("[0-9]");
+	std::unique_ptr<provider::ProcessDataProvider> provider;
 
-	return std::regex_search(path, r);
+	auto dirNames = provider->getProcessesDirNames();
+
+	int i = 4;
+	for (auto && name: dirNames)
+	{
+		std::cout << name << "\t";
+		if (++i % 4 == 0)
+		{
+			std::cout << "\n";
+		}
+	}
 }
 
 int main()
 {
 	std::cout << "### Side-Process-Manager ###" << std::endl;
 
-
-	const std::filesystem::path procDir{"/proc"};
-
-	for (auto const & entry : std::filesystem::directory_iterator{procDir})
-	{
-		if (entry.is_directory() && isProcessDirs(entry.path()))
-		{
-			std::cout << entry.path() << "\n";
-		}
-	}
+	std::thread t(showProcessDirNames);
+	t.join();
 
 	return 0;
 }
