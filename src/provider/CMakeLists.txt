@@ -6,7 +6,8 @@ add_library(${LIB}
 	STATIC
 	ProcessDataProvider.cpp
 )
-message("CMAKE_PROJECT_NAME = ${CMAKE_PROJECT_NAME}")
+
+# message("CMAKE_PROJECT_NAME = ${CMAKE_PROJECT_NAME}")
 
 target_include_directories(${LIB}
 	# For the public header files

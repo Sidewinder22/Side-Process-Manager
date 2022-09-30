@@ -8,29 +8,26 @@
 #include <iostream>
 #include <thread>
 #include "ProcessDataProvider.hpp"
-
-void showProcessDirNames()
-{
-	std::unique_ptr<provider::ProcessDataProvider> provider;
-
-	auto dirNames = provider->getProcessesDirNames();
-
-	int i = 4;
-	for (auto && name: dirNames)
-	{
-		std::cout << name << "\t";
-		if (++i % 4 == 0)
-		{
-			std::cout << "\n";
-		}
-	}
-}
+#include "ConsoleDisplay.hpp"
 
 int main()
 {
 	std::cout << "### Side-Process-Manager ###" << std::endl;
 
-	std::thread t(showProcessDirNames);
+	std::cout << "Hardware threads: "
+		<< std::thread::hardware_concurrency() << "\n";
+
+	std::unique_ptr<provider::ProcessDataProvider> provider;
+	auto dirNames = provider->getProcessesDirNames();
+
+	std::unique_ptr<ui::console::ConsoleDisplay> console;
+
+
+	std::thread t(
+		&ui::console::ConsoleDisplay::showProcessDirNames,
+		*console,
+		std::move(dirNames));
+
 	t.join();
 
 	return 0;
