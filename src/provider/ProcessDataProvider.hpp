@@ -21,6 +21,7 @@ public:
 
 private:
 	bool isProcessDir(const std::string& path);
+	static constexpr auto procDirName = "/proc";
 };
 
 }; // ::provider

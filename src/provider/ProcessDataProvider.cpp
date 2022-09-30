@@ -17,7 +17,7 @@ std::vector<std::string> ProcessDataProvider::getProcessesDirNames()
 {
 	std::vector<std::string> names;
 
-	const std::filesystem::path procDir{"/proc"};
+	const std::filesystem::path procDir{procDirName};
 
 	for (auto const & entry : std::filesystem::directory_iterator{procDir})
 	{
