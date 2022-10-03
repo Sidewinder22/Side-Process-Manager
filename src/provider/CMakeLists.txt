@@ -4,7 +4,11 @@ set(LIB provider)
 
 add_library(${LIB}
 	STATIC
+	DirPathPreparator.cpp
+	ProcessData.cpp
 	ProcessDataProvider.cpp
+	ProcessDataReader.cpp
+	Reader.cpp
 )
 
 # message("CMAKE_PROJECT_NAME = ${CMAKE_PROJECT_NAME}")

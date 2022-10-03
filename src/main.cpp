@@ -18,17 +18,36 @@ int main()
 		<< std::thread::hardware_concurrency() << "\n";
 
 	std::unique_ptr<provider::ProcessDataProvider> provider;
-	auto dirNames = provider->getProcessesDirNames();
+	auto data = provider->getProcessesData();
 
 	std::unique_ptr<ui::console::ConsoleDisplay> console;
 
+	data.push_back({3113, "name", provider::ProcessState::S, 6});
 
+    std::cout
+        << "|  PID  |  "
+        << "|  NAME  |  "
+        << "|  STATE  |  "
+        << "|  THREADS  |\n";
+
+	for( auto&& d: data)
+	{
+	    std::cout
+	        << "|  " << d.getPId() << "  |  "
+	        << "|  " << d.getProcessName() << "  |  "
+	        << "|  " << static_cast<int>(d.getProcessState()) << "  |  "
+	        << "|  " << d.getNumberOfThreads() << "  |\n";
+	}
+
+	/*
 	std::thread t(
 		&ui::console::ConsoleDisplay::showProcessDirNames,
 		*console,
-		std::move(dirNames));
+//		std::move(dirNames));
+		std::move(processesData));
 
 	t.join();
+		*/
 
 	return 0;
 }

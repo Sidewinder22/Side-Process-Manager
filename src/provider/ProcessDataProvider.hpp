@@ -8,8 +8,10 @@
 #ifndef SRC_PROVIDER_PROCESSDATAPROVIDER_HPP_
 #define SRC_PROVIDER_PROCESSDATAPROVIDER_HPP_
 
+#include <filesystem>
 #include <string>
 #include <vector>
+#include "ProcessData.hpp"
 
 namespace provider
 {
@@ -17,11 +19,7 @@ namespace provider
 class ProcessDataProvider
 {
 public:
-	std::vector<std::string> getProcessesDirNames();
-
-private:
-	bool isProcessDir(const std::string& path);
-	static constexpr auto procDirName = "/proc";
+	std::vector<ProcessData> getProcessesData();
 };
 
 }; // ::provider

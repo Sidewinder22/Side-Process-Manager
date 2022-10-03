@@ -9,17 +9,28 @@
 #define SRC_PROVIDER_PROCESSDATA_HPP_
 
 #include <string>
+#include <vector>
 #include "ProcessState.hpp"
 
 namespace provider
 {
 
-class ProcessData
+class ProcessData final
 {
 public:
+    ProcessData(
+        int pid,
+        std::string processName,
+	    ProcessState processState,
+	    int numberOfThreads);
+
+    int getPId();
+	std::string getProcessName();
+	ProcessState getProcessState();
+	int getNumberOfThreads();
 
 private:
-	uint pid_;
+	int pid_;
 	std::string processName_;
 	ProcessState processState_;
 	int numberOfThreads_;
