@@ -1,56 +1,47 @@
-<mxfile host="app.diagrams.net" modified="2022-10-03T09:55:25.436Z" agent="5.0 (X11)" etag="ESJVdCZc5gKnE1YHaFbq" version="20.4.0" type="github">
+<mxfile host="app.diagrams.net" modified="2022-10-03T11:09:12.072Z" agent="5.0 (X11)" etag="aJYDvd3V9IxYMG0SnBxs" version="20.4.0" type="github">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
-    <mxGraphModel dx="1422" dy="867" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="981" dy="598" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-0" />
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-1" parent="WIyWlLk6GJQsqaUBKTNV-0" />
         <mxCell id="Urx0WMwrFYBLJ4eI_fLI-4" value="ProcessDataReader&#xa;" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="235" y="330" width="330" height="86" as="geometry" />
         </mxCell>
-        <mxCell id="Urx0WMwrFYBLJ4eI_fLI-5" value="+ field: type" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="Urx0WMwrFYBLJ4eI_fLI-4" vertex="1">
+        <mxCell id="Urx0WMwrFYBLJ4eI_fLI-5" value="?" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="Urx0WMwrFYBLJ4eI_fLI-4" vertex="1">
           <mxGeometry y="26" width="330" height="26" as="geometry" />
         </mxCell>
         <mxCell id="Urx0WMwrFYBLJ4eI_fLI-6" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="Urx0WMwrFYBLJ4eI_fLI-4" vertex="1">
           <mxGeometry y="52" width="330" height="8" as="geometry" />
         </mxCell>
-        <mxCell id="Urx0WMwrFYBLJ4eI_fLI-7" value="+ read(filename, optional&lt;varName&gt;): vector&lt;string&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="Urx0WMwrFYBLJ4eI_fLI-4" vertex="1">
+        <mxCell id="Urx0WMwrFYBLJ4eI_fLI-7" value="+ getStatusData(pid): vector&lt;ProcessStatus&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="Urx0WMwrFYBLJ4eI_fLI-4" vertex="1">
           <mxGeometry y="60" width="330" height="26" as="geometry" />
         </mxCell>
-        <mxCell id="Urx0WMwrFYBLJ4eI_fLI-9" value="" style="endArrow=open;endFill=1;endSize=12;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" target="n1sDBq4FKEW2Isi11Au9-0" edge="1" source="Urx0WMwrFYBLJ4eI_fLI-4">
+        <mxCell id="Urx0WMwrFYBLJ4eI_fLI-9" value="" style="endArrow=open;endFill=1;endSize=12;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="Urx0WMwrFYBLJ4eI_fLI-4" target="n1sDBq4FKEW2Isi11Au9-0" edge="1">
           <mxGeometry width="160" relative="1" as="geometry">
             <mxPoint x="400" y="420" as="sourcePoint" />
             <mxPoint x="393.6199999999999" y="487" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="Urx0WMwrFYBLJ4eI_fLI-10" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;ValueReader&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ field: Type&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ read(filename, optional&amp;lt;varName&amp;gt;): vector&amp;lt;string&amp;gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="90" y="690" width="310" height="100" as="geometry" />
+        <mxCell id="Urx0WMwrFYBLJ4eI_fLI-10" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;Reader&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ field: Type&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ Reader(filename: string)&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ readStatusData(): ProcessStatus&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="300" y="630" width="200" height="100" as="geometry" />
         </mxCell>
-        <mxCell id="Urx0WMwrFYBLJ4eI_fLI-11" value="Extends" style="endArrow=block;endSize=16;endFill=0;html=1;rounded=0;entryX=0.425;entryY=1.021;entryDx=0;entryDy=0;entryPerimeter=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="Urx0WMwrFYBLJ4eI_fLI-10" target="n1sDBq4FKEW2Isi11Au9-0" edge="1">
+        <mxCell id="Urx0WMwrFYBLJ4eI_fLI-11" value="Extends" style="endArrow=block;endSize=16;endFill=0;html=1;rounded=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="Urx0WMwrFYBLJ4eI_fLI-10" target="n1sDBq4FKEW2Isi11Au9-0" edge="1">
           <mxGeometry width="160" relative="1" as="geometry">
             <mxPoint x="360" y="660" as="sourcePoint" />
             <mxPoint x="400" y="590" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="n1sDBq4FKEW2Isi11Au9-0" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;i&gt;&amp;lt;&amp;lt;Interface&amp;gt;&amp;gt;\&lt;/i&gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;IReader&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ field1: Type&lt;br&gt;+ field2: Type&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ read(filename, optional&amp;lt;varName&amp;gt;): vector&amp;lt;string&amp;gt;&lt;br&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="240" y="490" width="320" height="120" as="geometry" />
+        <mxCell id="n1sDBq4FKEW2Isi11Au9-0" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;i&gt;&amp;lt;&amp;lt;Interface&amp;gt;&amp;gt;\&lt;/i&gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;IReader&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ readStatusData(): ProcessStatus&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="240" y="470" width="320" height="90" as="geometry" />
         </mxCell>
-        <mxCell id="n1sDBq4FKEW2Isi11Au9-1" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;ProcessDataProvider&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ field: Type&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ method(): Type&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="320" y="160" width="160" height="90" as="geometry" />
+        <mxCell id="n1sDBq4FKEW2Isi11Au9-1" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;ProcessDataProvider&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- procDirName: string&lt;br&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ getProcessData(): vector&amp;lt;ProcessStatus&amp;gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- prepareProcessDirs()&lt;br&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="277.5" y="160" width="245" height="100" as="geometry" />
         </mxCell>
         <mxCell id="n1sDBq4FKEW2Isi11Au9-2" value="Use" style="endArrow=open;endSize=12;dashed=1;html=1;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="n1sDBq4FKEW2Isi11Au9-1" target="Urx0WMwrFYBLJ4eI_fLI-4" edge="1">
           <mxGeometry width="160" relative="1" as="geometry">
             <mxPoint x="100" y="230" as="sourcePoint" />
             <mxPoint x="260" y="230" as="targetPoint" />
           </mxGeometry>
-        </mxCell>
-        <mxCell id="n1sDBq4FKEW2Isi11Au9-4" value="Extends" style="endArrow=block;endSize=16;endFill=0;html=1;rounded=0;entryX=0.597;entryY=1.007;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.532;exitY=0;exitDx=0;exitDy=0;exitPerimeter=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="n1sDBq4FKEW2Isi11Au9-5" target="n1sDBq4FKEW2Isi11Au9-0" edge="1">
-          <mxGeometry width="160" relative="1" as="geometry">
-            <mxPoint x="615" y="690" as="sourcePoint" />
-            <mxPoint x="354.7368421052631" y="640" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="n1sDBq4FKEW2Isi11Au9-5" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;FileReader&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ field: Type&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ read(filename, optional&amp;lt;varName&amp;gt;): vector&amp;lt;string&amp;gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="450" y="690" width="310" height="100" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
