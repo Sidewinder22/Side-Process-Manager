@@ -14,6 +14,8 @@ namespace provider {
 Reader::Reader(std::filesystem::path filePath)
     : filePath_(filePath)
 {
+    std::cout << "Reader, filepath: " << filePath << std::endl;
+
     file_.open(filePath_, std::ifstream::in);
 
     if (!file_.is_open())
@@ -33,10 +35,20 @@ Reader::~Reader()
 ProcessData Reader::read()
 {
     // Load whole file to the memory and next process it.
-    file_.seekg(0, std::ios::end);
-    buffer_.resize(file_.tellg());
-    file_.seekg(0);
-    file_.read(buffer_.data(), buffer_.size());
+    //do
+    while (file_.good());
+    {
+        std::string tempBuffer_;
+
+        std::getline(file_, tempBuffer_);
+
+        buffer_.append(tempBuffer_);
+    }// while (file_.good());
+
+//    file_.seekg(0, std::ios::end);
+//    buffer_.resize(file_.tellg());
+//    file_.seekg(0);
+//    file_.read(buffer_.data(), buffer_.size());
 
     std::cout << "File: " << buffer_ << std::endl;
 

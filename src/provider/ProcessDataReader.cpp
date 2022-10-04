@@ -22,7 +22,7 @@ std::vector<ProcessData> ProcessDataReader::getProcessesData()
     {
         std::cout << "Processing path: " << path << "\n";
 
-        auto filePath = path.c_str() + fileName_;
+        auto filePath = path.string() + fileName_;
         auto reader = std::make_unique<Reader>(filePath);
         reader->read();
     }
