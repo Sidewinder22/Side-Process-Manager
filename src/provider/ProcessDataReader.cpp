@@ -6,6 +6,7 @@
  */
 
 #include <iostream>
+#include <stdexcept>
 #include "ProcessDataReader.hpp"
 #include "Reader.hpp"
 
@@ -18,16 +19,36 @@ ProcessDataReader::ProcessDataReader(
 
 std::vector<ProcessData> ProcessDataReader::getProcessesData()
 {
+    std::vector<ProcessData> results;
+
     for (auto && path : procDirPaths_)
     {
         std::cout << "Processing path: " << path << "\n";
 
         auto filePath = path.string() + fileName_;
-        auto reader = std::make_unique<Reader>(filePath);
-        reader->read();
+
+        try
+        {
+            auto reader = std::make_unique<Reader>(filePath);
+            auto data = reader->read();
+            std::cout << "Before data" << std::endl;
+            results.push_back(data);
+        }
+        catch (const std::runtime_error& e)
+        {
+            std::cerr << "Runtime error: " << e.what() << std::endl;
+        }
+        catch (const std::invalid_argument& e)
+        {
+            std::cerr << "Invalid argument error: " << e.what() << std::endl;
+        }
+        catch (...)
+        {
+            std::cerr << "Another exception!" << std::endl;
+        }
     }
 
-	return {};
+    return results;
 }
 
 }  // namespace provider

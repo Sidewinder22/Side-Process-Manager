@@ -11,6 +11,7 @@
 #include <filesystem>
 #include <fstream>
 #include <string>
+#include <vector>
 #include "ProcessData.hpp"
 
 namespace provider {
@@ -24,9 +25,11 @@ public:
     ProcessData read();
 
 private:
+//    ProcessData extractProcessData(std::vector<std::string> buffer);
+    ProcessState convertStrToState(const std::string& stateStr);
+
     std::string filePath_;
     std::ifstream file_;
-    std::string buffer_;
 };
 
 }  // namespace provider
