@@ -23,15 +23,13 @@ std::vector<ProcessData> ProcessDataReader::getProcessesData()
 
     for (auto && path : procDirPaths_)
     {
-        std::cout << "Processing path: " << path << "\n";
-
         auto filePath = path.string() + fileName_;
 
         try
         {
             auto reader = std::make_unique<Reader>(filePath);
             auto data = reader->read();
-            std::cout << "Before data" << std::endl;
+
             results.push_back(data);
         }
         catch (const std::runtime_error& e)

@@ -4,7 +4,8 @@ cmake_minimum_required(VERSION 3.20)
 
 project(side-process-manager)
 
-set(CMAKE_CXX_STANDARD 17)
+# C++20 for constexpr std::array initialization
+set(CMAKE_CXX_STANDARD 20)
 
 set(EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/bin)
 

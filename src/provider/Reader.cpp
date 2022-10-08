@@ -5,12 +5,12 @@
  *      Author: {\_Sidewinder22_/}
  */
 
-#include <algorithm>
 #include <iostream>
 #include <regex>
 #include <stdexcept>
 #include <utility>
 #include "ProcessState.hpp"
+#include "Tools.hpp"
 #include "Reader.hpp"
 
 namespace provider {
@@ -18,8 +18,6 @@ namespace provider {
 Reader::Reader(std::filesystem::path filePath)
     : filePath_(filePath)
 {
-    std::cout << "Reader, filepath: " << filePath << std::endl;
-
     file_.open(filePath_, std::ifstream::in);
 
     if (!file_.is_open())
@@ -30,7 +28,6 @@ Reader::Reader(std::filesystem::path filePath)
 
 Reader::~Reader()
 {
-    std::cout << "Reader, closing file." << std::endl;
     if (file_.is_open())
     {
         file_.close();
@@ -39,62 +36,72 @@ Reader::~Reader()
 
 ProcessData Reader::read()
 {
-    std::vector<std::string> lines_;
-    std::vector<std::pair<std::string, std::string>> params;
+    readParams();
+    return {constructProcessData()};
+}
 
-    // Load whole file to the memory and next process it.
+ProcessData Reader::constructProcessData()
+{
+    int pid;
+    std::string name;
+    common::ProcessState state;
+    int threads;
+
+    for (auto && p : params_)
+    {
+        if (p.first == names_[0])       // Name
+        {
+            name = p.second;
+        }
+        else if (p.first == names_[1])  // State
+        {
+            state = common::convertStringToState(p.second);
+        }
+        else if (p.first == names_[2])  // Pid
+        {
+            pid = std::stoi(p.second);
+        }
+        else if (p.first == names_[3])  // Threads
+        {
+            threads = std::stoi(p.second);
+        }
+    }
+
+    return {pid, name, state, threads};
+}
+
+/***
+ * Read one line from file, check if it contains desired value
+ * if true put it to the vector
+ * if not, read the next value
+ */
+void Reader::readParams()
+{
     do
     {
-        std::string buffer_;
-        std::getline(file_, buffer_);
+        std::string line;
+        std::getline(file_, line);
 
-        std::vector<std::string> names = {
-            "Name",
-            "State",
-            "Pid",
-            "Threads"
-        };
-
-        for (auto && name : names)
+        for (auto && name : names_)
         {
             std::regex r("^" + name + "|\n");
 
-            if (std::regex_search(buffer_, r))
+            if (std::regex_search(line, r))
             {
-                // read the value
-
                 std::smatch valueMatch;
                 std::regex r2(":|\n");
 
-                if (std::regex_search(buffer_, valueMatch, r2))
+                if (std::regex_search(line, valueMatch, r2))
                 {
-
-                    // remove whitespaces
-
                     std::string value = valueMatch.suffix();
-                    value.erase(
-                        std::remove_if(value.begin(), value.end(), isspace),
-                        value.end());
-                    params.push_back({name, value});
+                    common::tools::removeWhitespaces(value);
+
+                    params_.push_back({name, value});
                 }
             }
         }
     }
     while (file_.good());
-
-    std::cout << "[" << params[0].first << "]: " << params[0].second << std::endl;
-    std::cout << "[" << params[1].first << "]: " << params[1].second << std::endl;
-    std::cout << "[" << params[2].first << "]: " << params[2].second << std::endl;
-    std::cout << "[" << params[3].first << "]: " << params[3].second << std::endl;
-
-    ProcessData data(
-        std::stoi(params[2].second),
-        params[0].second,
-//        convertStrToState(params[1].second),
-        common::convertStringToState(params[1].second),
-        std::stoi(params[3].second));
-
-    return std::move(data);
 }
 
 }  // namespace provider
