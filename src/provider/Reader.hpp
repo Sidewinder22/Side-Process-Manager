@@ -8,10 +8,10 @@
 #ifndef SRC_PROVIDER_READER_HPP_
 #define SRC_PROVIDER_READER_HPP_
 
+#include <array>
 #include <filesystem>
 #include <fstream>
 #include <string>
-#include <vector>
 #include "ProcessData.hpp"
 
 namespace provider {
@@ -25,6 +25,18 @@ public:
     ProcessData read();
 
 private:
+    // C++20
+    static constexpr std::array<std::string, 4> names_ {
+        "Name",
+        "State",
+        "Pid",
+        "Threads"
+    };
+
+    void readParams();
+    ProcessData constructProcessData();
+
+    std::vector<std::pair<std::string, std::string>> params_;
     std::string filePath_;
     std::ifstream file_;
 };

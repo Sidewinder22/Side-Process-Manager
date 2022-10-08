@@ -5,6 +5,7 @@ set(LIB common)
 add_library(${LIB}
     STATIC
     ProcessState.cpp
+    Tools.cpp
 )
 
 target_include_directories(${LIB}

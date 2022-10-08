@@ -1,8 +1,8 @@
 # src dir CMake
 
 set(APP side-project-manager)
-set(provider_lib provider)
 set(console_lib console)
+set(provider_lib provider)
 
 add_subdirectory(common)
 add_subdirectory(provider)
@@ -12,6 +12,6 @@ add_executable(${APP} main.cpp)
 
 target_link_libraries(${APP}
 	PRIVATE
-	${provider_lib}
 	${console_lib}
+	${provider_lib}
 )
