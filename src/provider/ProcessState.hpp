@@ -12,7 +12,7 @@ namespace provider {
 
 enum class ProcessState
 {
-    R = 0,	// Running
+    R,	// Running
     S,	// Sleeping in an interruptible wait
     D, 	// Waiting in uninterruptible disk sleep
     Z, 	// Zombie
@@ -21,7 +21,7 @@ enum class ProcessState
     X,	// Dead (from Linux 2.6.0 onward)
     I,  // Idle
 
-    U,  // Uknown
+    U = 128,  // Uknown
 };
 
 }  // namespace provider

@@ -33,10 +33,10 @@ int main()
 	for( auto&& d: data)
 	{
 	    std::cout
-	        << "|  " << d.getPId() << "  |  "
-	        << "|  " << d.getProcessName() << "  |  "
-	        << "|  " << static_cast<int>(d.getProcessState()) << "  |  "
-	        << "|  " << d.getNumberOfThreads() << "  |\n";
+	        << "|\t" << d.getProcessName()
+	        << "\t|\t" << d.getPId()
+	        << "\t|\t" << static_cast<int>(d.getProcessState())
+	        << "\t|\t" << d.getNumberOfThreads() << "\t|\n";
 	}
 
 	/*

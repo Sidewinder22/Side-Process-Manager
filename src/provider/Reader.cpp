@@ -47,9 +47,6 @@ ProcessData Reader::read()
         std::string buffer_;
         std::getline(file_, buffer_);
 
-
-        // pair<name_of_parameter, value>
-
         std::vector<std::string> names = {
             "Name",
             "State",
@@ -84,60 +81,17 @@ ProcessData Reader::read()
     }
     while (file_.good());
 
-    std::cout << "******************************************" << std::endl;
-    for (auto && p : params)
-    {
-        std::cout << p.first << " | " << p.second << "\n";
-    }
-    std::cout << "******************************************" << std::endl;
-
-
-//    auto result1 = std::find(params.begin(), params.end(),
-//            [](std::pair<std::string, std::string> pair)
-//        {
-////            if (pair.first == std::string("Name"))
-////            {
-////                return true;
-////            }
-//            return false;
-//        });
-////    auto result2 = std::find(params.begin(), params.end(), "State");
-////    auto result3 = std::find(params.begin(), params.end(), "Pid");
-////    auto result4 = std::find(params.begin(), params.end(), "Threads");
-//
-//
-//    if (result1 != params.end())
-////        result2 != params.end() &&
-////        result3 != params.end() &&
-////        result4 != params.end())
-//    {
-//        ProcessData data(
-//            std::stoi(result1->second),
-////            result2->second,
-//            "proc",
-//            ProcessState::D,
-//            1);
-//        return std::move(data);
-//    }
     std::cout << "[" << params[0].first << "]: " << params[0].second << std::endl;
     std::cout << "[" << params[1].first << "]: " << params[1].second << std::endl;
     std::cout << "[" << params[2].first << "]: " << params[2].second << std::endl;
     std::cout << "[" << params[3].first << "]: " << params[3].second << std::endl;
 
-
-//    ProcessState state{std::stoi(params[1].second)};
-
     ProcessData data(
         std::stoi(params[2].second),
         params[0].second,
-//        static_cast<ProcessState>(std::stoi(params[1].second)),
-//        ProcessState::S,
-//        ProcessState{std::stoi(params[1].second)},
         convertStrToState(params[1].second),
         std::stoi(params[3].second));
 
-
-//    ProcessData data(311, "process", ProcessState::D, 1);
     return std::move(data);
 }
 
@@ -184,15 +138,5 @@ ProcessState Reader::convertStrToState(const std::string& stateStr)
 
    return state;
 }
-
-//ProcessData Reader::extractProcessData(std::vector<std::string> buffer)
-//{
-//    static constexpr auto pidRegex = "Pid:";
-//
-//
-//
-//    ProcessData data(311, "process", ProcessState::D, 1);
-//    return std::move(data);
-//}
 
 }  // namespace provider

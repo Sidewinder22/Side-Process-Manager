@@ -20,9 +20,6 @@ std::vector<std::filesystem::path> DirPathPreparator::prepareProcDirPaths()
         if (entry.is_directory() && isProcessDir(entry.path()))
         {
             results.push_back(entry.path());
-
-            // TODO: To remove!!!!
-//            break;
         }
     }
 
