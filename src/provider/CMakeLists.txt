@@ -11,6 +11,10 @@ add_library(${LIB}
 	Reader.cpp
 )
 
+target_link_libraries(${LIB}
+    common
+)
+
 # message("CMAKE_PROJECT_NAME = ${CMAKE_PROJECT_NAME}")
 
 target_include_directories(${LIB}

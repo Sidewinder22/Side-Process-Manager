@@ -21,18 +21,18 @@ public:
     ProcessData(
         int pid,
         std::string processName,
-	    ProcessState processState,
+	    common::ProcessState processState,
 	    int numberOfThreads);
 
     int getPId();
 	std::string getProcessName();
-	ProcessState getProcessState();
+	common::ProcessState getProcessState();
 	int getNumberOfThreads();
 
 private:
 	int pid_;
 	std::string processName_;
-	ProcessState processState_;
+	common::ProcessState processState_;
 	int numberOfThreads_;
 };
 

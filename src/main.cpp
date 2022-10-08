@@ -9,6 +9,7 @@
 #include <thread>
 #include "ProcessDataProvider.hpp"
 #include "ConsoleDisplay.hpp"
+#include "ProcessState.hpp"
 
 int main()
 {
@@ -22,8 +23,6 @@ int main()
 
 	std::unique_ptr<ui::console::ConsoleDisplay> console;
 
-//	data.push_back({3113, "name", provider::ProcessState::S, 6});
-
     std::cout
         << "|  PID  |  "
         << "|  NAME  |  "
@@ -33,10 +32,10 @@ int main()
 	for( auto&& d: data)
 	{
 	    std::cout
-	        << "|\t" << d.getProcessName()
-	        << "\t|\t" << d.getPId()
-	        << "\t|\t" << static_cast<int>(d.getProcessState())
-	        << "\t|\t" << d.getNumberOfThreads() << "\t|\n";
+	        << "|\t" << d.getPId()
+	        << "\t|\t" << common::convertStateToString(d.getProcessState())
+	        << "\t|\t" << d.getNumberOfThreads()
+	        << "\t|\t" << d.getProcessName() << "\t|\n";
 	}
 
 	/*

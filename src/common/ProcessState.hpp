@@ -5,10 +5,13 @@
  *      Author: {\_Sidewinder22_/}
  */
 
-#ifndef SRC_PROVIDER_PROCESSSTATE_HPP_
-#define SRC_PROVIDER_PROCESSSTATE_HPP_
+#ifndef SRC_COMMON_PROCESSSTATE_HPP_
+#define SRC_COMMON_PROCESSSTATE_HPP_
 
-namespace provider {
+#include <iostream>
+#include <string>
+
+namespace common {
 
 enum class ProcessState
 {
@@ -21,9 +24,13 @@ enum class ProcessState
     X,	// Dead (from Linux 2.6.0 onward)
     I,  // Idle
 
-    U = 128,  // Uknown
+    Uknown = 128,  // Uknown
 };
 
-}  // namespace provider
+ProcessState convertStringToState(const std::string& stateStr);
 
-#endif /* SRC_PROVIDER_PROCESSSTATE_HPP_ */
+std::string convertStateToString(ProcessState state);
+
+}  // namespace common
+
+#endif /* SRC_COMMON_PROCESSSTATE_HPP_ */

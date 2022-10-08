@@ -10,6 +10,7 @@
 #include <regex>
 #include <stdexcept>
 #include <utility>
+#include "ProcessState.hpp"
 #include "Reader.hpp"
 
 namespace provider {
@@ -89,54 +90,11 @@ ProcessData Reader::read()
     ProcessData data(
         std::stoi(params[2].second),
         params[0].second,
-        convertStrToState(params[1].second),
+//        convertStrToState(params[1].second),
+        common::convertStringToState(params[1].second),
         std::stoi(params[3].second));
 
     return std::move(data);
-}
-
-ProcessState Reader::convertStrToState(const std::string& stateStr)
-{
-    std::cout << "convertStrToState, str: " << stateStr << std::endl;
-
-   ProcessState state{ProcessState::U};
-
-   auto stateChar = stateStr.front();
-
-   if (stateChar == 'R')
-   {
-       state = ProcessState::R;
-   }
-   else if (stateChar == 'S')
-   {
-       state = ProcessState::S;
-   }
-   else if (stateChar == 'D')
-   {
-       state = ProcessState::D;
-   }
-   else if (stateChar == 'Z')
-   {
-       state = ProcessState::Z;
-   }
-   else if (stateChar == 'T')
-   {
-       state = ProcessState::T;
-   }
-   else if (stateChar == 't')
-   {
-       state = ProcessState::t;
-   }
-   else if (stateChar == 'X')
-   {
-       state = ProcessState::X;
-   }
-   else if (stateChar == 'I')
-   {
-       state = ProcessState::I;
-   }
-
-   return state;
 }
 
 }  // namespace provider

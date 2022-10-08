@@ -12,7 +12,7 @@ namespace provider {
 ProcessData::ProcessData(
         int pid,
         std::string processName,
-	    ProcessState processState,
+	    common::ProcessState processState,
 	    int numberOfThreads)
 	: pid_(pid)
 	, processName_(processName)
@@ -30,7 +30,7 @@ std::string ProcessData::getProcessName()
     return processName_;
 }
 
-ProcessState ProcessData::getProcessState()
+common::ProcessState ProcessData::getProcessState()
 {
     return processState_;
 }

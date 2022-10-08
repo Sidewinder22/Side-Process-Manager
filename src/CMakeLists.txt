@@ -4,6 +4,7 @@ set(APP side-project-manager)
 set(provider_lib provider)
 set(console_lib console)
 
+add_subdirectory(common)
 add_subdirectory(provider)
 add_subdirectory(ui)
 
