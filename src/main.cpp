@@ -23,20 +23,22 @@ int main()
 
 	std::unique_ptr<ui::console::ConsoleDisplay> console;
 
-    std::cout
-        << "|  PID  |  "
-        << "|  NAME  |  "
-        << "|  STATE  |  "
-        << "|  THREADS  |\n";
+	console->show();
 
-	for( auto&& d: data)
-	{
-	    std::cout
-	        << "| " << d.getPId()
-	        << " | " << common::convertStateToString(d.getProcessState())
-	        << " | " << d.getNumberOfThreads()
-	        << " | " << d.getProcessName() << " |\n";
-	}
+//    std::cout
+//        << "|  PID  |  "
+//        << "|  NAME  |  "
+//        << "|  STATE  |  "
+//        << "|  THREADS  |\n";
+//
+//	for( auto&& d: data)
+//	{
+//	    std::cout
+//	        << "| " << d.getPId()
+//	        << " | " << common::convertStateToString(d.getProcessState())
+//	        << " | " << d.getNumberOfThreads()
+//	        << " | " << d.getProcessName() << " |\n";
+//	}
 
 	/*
 	std::thread t(

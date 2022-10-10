@@ -7,6 +7,13 @@ add_library(${LIB}
     ConsoleDisplay.cpp
 )
 
+find_package(Curses REQUIRED)
+include_directories(${CURSES_INCLUDE_DIR})
+
+target_link_libraries(${LIB}
+	${CURSES_LIBRARY}
+)
+
 target_include_directories(${LIB}
 	# For the public header files
 	PUBLIC 

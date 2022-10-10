@@ -11,6 +11,14 @@
 namespace ui::console
 {
 
+void ConsoleDisplay::show()
+{
+	initscr();
+	printw("Hello, world!");
+	getch();
+	endwin();
+}
+
 void ConsoleDisplay::showProcessDirNames(std::vector<std::string> dirNames)
 {
 	int i = 4;

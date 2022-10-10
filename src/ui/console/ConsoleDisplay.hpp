@@ -10,6 +10,7 @@
 
 #include <string>
 #include <vector>
+#include <ncurses.h>
 
 namespace ui::console
 {
@@ -17,6 +18,8 @@ namespace ui::console
 class ConsoleDisplay
 {
 public:
+	void show();
+
 	void showProcessDirNames(std::vector<std::string> dirNames);
 };
 

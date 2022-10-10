@@ -89,7 +89,7 @@ void Reader::readParams()
             if (std::regex_search(line, r))
             {
                 std::smatch valueMatch;
-                std::regex r2(":|\n");
+                std::regex r2(valueRegex);
 
                 if (std::regex_search(line, valueMatch, r2))
                 {

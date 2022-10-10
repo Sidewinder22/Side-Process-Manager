@@ -25,6 +25,7 @@ public:
     ProcessData read();
 
 private:
+    static constexpr auto valueRegex = ":|\n";
     // C++20
     static constexpr std::array<std::string, 4> names_ {
         "Name",
