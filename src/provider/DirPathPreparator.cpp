@@ -23,7 +23,7 @@ std::vector<std::filesystem::path> DirPathPreparator::prepareProcDirPaths()
         }
     }
 
-    return std::move(results);
+    return results;
 }
 
 bool DirPathPreparator::isProcessDir(const std::string& path)

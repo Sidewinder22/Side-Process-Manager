@@ -6,22 +6,18 @@
  */
 
 #include <iostream>
-#include <thread>
 #include "ProcessDataProvider.hpp"
-#include "ConsoleDisplay.hpp"
 #include "ProcessState.hpp"
+#include "ui/console/Display.hpp"
 
 int main()
 {
-	std::cout << "### Side-Process-Manager ###" << std::endl;
 
-	std::cout << "Hardware threads: "
-		<< std::thread::hardware_concurrency() << "\n";
 
 	std::unique_ptr<provider::ProcessDataProvider> provider;
 	auto data = provider->getProcessesData();
 
-	std::unique_ptr<ui::console::ConsoleDisplay> console;
+	std::unique_ptr<ui::console::Display> console;
 
 	console->show();
 
