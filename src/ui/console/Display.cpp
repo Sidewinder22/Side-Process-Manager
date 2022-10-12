@@ -6,7 +6,7 @@
  */
 
 #include <chrono>
-#include <iostream>
+#include <cstring>
 #include <thread>
 #include <ncurses.h>
 
@@ -17,22 +17,44 @@ namespace ui::console
 
 void Display::show()
 {
+	// Initialize ncurses features
 	initscr();
 	raw();
 	keypad(stdscr, true);
 	noecho();
 
-	printw("### Side-Process-Manager ###\n");
-	getAChar();
+	int row, col;
+	getmaxyx(stdscr, row, col);
 
+	printLogo(row, col);
+	printScreenSize(row, col);
+
+//	getAChar();
 	refresh();
 
 	getch();
 	endwin();
 }
 
+void Display::printLogo(int row, int col)
+{
+	attron(A_BOLD);
+	mvprintw(row/2, (col - std::strlen(appName_))/2, appName_);
+	attroff(A_BOLD);
+}
+
+void Display::printScreenSize(int row, int col)
+{
+	int screenSizeLength = std::strlen(screenSize_);
+	if (col >= screenSizeLength)
+	{
+		mvprintw(2, col - screenSizeLength -2, screenSize_, row, col);
+	}
+}
+
 void Display::getAChar()
 {
+	move(0, 0);
 	printw("Type any char...\n");
 
 	int ch = getch();

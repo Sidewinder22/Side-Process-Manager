@@ -20,7 +20,13 @@ public:
 	void show();
 
 private:
+	void printLogo(int row, int col);
+	void printScreenSize(int row, int col);
+
 	void getAChar();
+
+	static constexpr auto appName_ = "### Side-Process-Manager ###";
+	static constexpr auto screenSize_ = "Screen size: [%d x %d]";
 };
 
 }; // ::ui::console
