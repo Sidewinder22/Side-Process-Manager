@@ -15,6 +15,8 @@
 namespace ui::console
 {
 
+using namespace std::chrono_literals;
+
 void Display::show()
 {
 	// Initialize ncurses features
@@ -22,18 +24,31 @@ void Display::show()
 	raw();
 	keypad(stdscr, true);
 	noecho();
+	cbreak();
 
-	int row, col;
-	getmaxyx(stdscr, row, col);
+	printWelcomeInfo();
 
-	printLogo(row, col);
-	printScreenSize(row, col);
-
-//	getAChar();
+	getAChar();
 	refresh();
 
 	getch();
 	endwin();
+}
+
+void Display::printWelcomeInfo()
+{
+	int row = 0, col = 0;
+	getmaxyx(stdscr, row, col);
+
+	printLogo(row, col);
+	printAuthor(row, col);
+	printScreenSize(row, col);
+
+	refresh();
+
+	std::this_thread::sleep_for(2000ms);
+
+	clear();
 }
 
 void Display::printLogo(int row, int col)
@@ -41,6 +56,13 @@ void Display::printLogo(int row, int col)
 	attron(A_BOLD);
 	mvprintw(row/2, (col - std::strlen(appName_))/2, appName_);
 	attroff(A_BOLD);
+}
+
+void Display::printAuthor(int row, int col)
+{
+	attron(A_ITALIC);
+	mvprintw((row/2) + 1, (col - std::strlen(author_))/2, author_);
+	attroff(A_ITALIC);
 }
 
 void Display::printScreenSize(int row, int col)

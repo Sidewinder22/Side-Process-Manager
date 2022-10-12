@@ -20,12 +20,15 @@ public:
 	void show();
 
 private:
+	void printWelcomeInfo();
 	void printLogo(int row, int col);
+	void printAuthor(int row, int col);
 	void printScreenSize(int row, int col);
 
 	void getAChar();
 
-	static constexpr auto appName_ = "### Side-Process-Manager ###";
+	static constexpr auto appName_ = "### Side-Process-Manager ###\n";
+	static constexpr auto author_ = "{\\_Sidewinder22_/}";
 	static constexpr auto screenSize_ = "Screen size: [%d x %d]";
 };
 
