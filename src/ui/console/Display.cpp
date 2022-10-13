@@ -7,9 +7,12 @@
 
 #include <chrono>
 #include <cstring>
+#include <memory>
 #include <thread>
 #include <ncurses.h>
 
+#include "Tools.hpp"
+#include "Window.hpp"
 #include "Display.hpp"
 
 namespace ui::console
@@ -28,34 +31,15 @@ void Display::show()
 
 	printWelcomeInfo();
 
-	int row = 0, col = 0;
-	getmaxyx(stdscr, row, col);
+	auto win = std::make_unique<Window>();
+	win->show();
 
-	WINDOW* win;
-	int startx = 0, starty = 0, width = 0, height = 0;
-
-	height = row - 4;
-	width = col - 4;
-	starty = 2;
-	startx = 2;
-
-	win = newwin(height, width, starty, startx);
-
-	wborder(win, '|', '|', '|','|','|','|','|','|');
-	mvwprintw(win, 2, 2, "New window");
-	wrefresh(win);
-
-	wgetch(win);
-
-	getch();
-	delwin(win);
 	endwin();
 }
 
 void Display::printWelcomeInfo()
 {
-	int row = 0, col = 0;
-	getmaxyx(stdscr, row, col);
+	auto [row, col] = tools::getScreenSizeXY();
 
 	printLogo(row, col);
 	printAuthor(row, col);
@@ -93,6 +77,7 @@ void Display::printScreenSize(int row, int col)
 	}
 }
 
+// For future use
 void Display::getChar()
 {
 	move(0, 0);
