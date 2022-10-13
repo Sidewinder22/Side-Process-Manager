@@ -19,19 +19,36 @@ using namespace std::chrono_literals;
 
 void Display::show()
 {
-	// Initialize ncurses features
-	initscr();
+	initscr(); 				// Start curses mode
 	raw();
-	keypad(stdscr, true);
+	keypad(stdscr, true);	// For using F-keys
 	noecho();
-	cbreak();
+	cbreak(); 				// Line buffering disabled
+	start_color();
 
 	printWelcomeInfo();
 
-	getAChar();
-	refresh();
+	int row = 0, col = 0;
+	getmaxyx(stdscr, row, col);
+
+	WINDOW* win;
+	int startx = 0, starty = 0, width = 0, height = 0;
+
+	height = row - 4;
+	width = col - 4;
+	starty = 2;
+	startx = 2;
+
+	win = newwin(height, width, starty, startx);
+
+	wborder(win, '|', '|', '|','|','|','|','|','|');
+	mvwprintw(win, 2, 2, "New window");
+	wrefresh(win);
+
+	wgetch(win);
 
 	getch();
+	delwin(win);
 	endwin();
 }
 
@@ -60,9 +77,9 @@ void Display::printLogo(int row, int col)
 
 void Display::printAuthor(int row, int col)
 {
-	attron(A_ITALIC);
+	attron(A_DIM);
 	mvprintw((row/2) + 1, (col - std::strlen(author_))/2, author_);
-	attroff(A_ITALIC);
+	attroff(A_DIM);
 }
 
 void Display::printScreenSize(int row, int col)
@@ -70,11 +87,13 @@ void Display::printScreenSize(int row, int col)
 	int screenSizeLength = std::strlen(screenSize_);
 	if (col >= screenSizeLength)
 	{
+		attron(A_DIM);
 		mvprintw(2, col - screenSizeLength -2, screenSize_, row, col);
+		attroff(A_DIM);
 	}
 }
 
-void Display::getAChar()
+void Display::getChar()
 {
 	move(0, 0);
 	printw("Type any char...\n");

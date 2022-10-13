@@ -25,7 +25,9 @@ private:
 	void printAuthor(int row, int col);
 	void printScreenSize(int row, int col);
 
-	void getAChar();
+	void createWindowsLayout();
+
+	void getChar();
 
 	static constexpr auto appName_ = "### Side-Process-Manager ###\n";
 	static constexpr auto author_ = "{\\_Sidewinder22_/}";
