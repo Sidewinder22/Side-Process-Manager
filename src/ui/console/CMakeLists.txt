@@ -5,6 +5,8 @@ set(LIB console)
 add_library(${LIB}
     STATIC
     Display.cpp
+    Tools.cpp
+    Window.cpp
 )
 
 find_package(Curses REQUIRED)
