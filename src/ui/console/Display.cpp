@@ -11,8 +11,8 @@
 #include <thread>
 #include <ncurses.h>
 
+#include "Layout.hpp"
 #include "Tools.hpp"
-#include "Window.hpp"
 #include "Display.hpp"
 
 namespace ui::console
@@ -31,9 +31,10 @@ void Display::show()
 
 	printWelcomeInfo();
 
-	auto win = std::make_unique<Window>();
-	win->show();
+	auto layout = std::make_unique<Layout>();
+	layout->createLayout();
 
+	getch();
 	endwin();
 }
 
