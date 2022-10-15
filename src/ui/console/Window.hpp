@@ -8,20 +8,23 @@
 #ifndef SRC_UI_CONSOLE_WINDOW_HPP_
 #define SRC_UI_CONSOLE_WINDOW_HPP_
 
+#include <string_view>
 #include <ncurses.h>
+#include <panel.h>
 
 namespace ui::console {
 
 class Window
 {
 public:
-	Window();
+	Window(int height, int width, int starty, int startx);
 	~Window();
 
-	void show();
+	void show(std::string_view title);
 
 private:
 	WINDOW* win_;
+	PANEL* panel_;
 };
 
 }  // namespace ui::console

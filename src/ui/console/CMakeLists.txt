@@ -2,9 +2,12 @@
 
 set(LIB console)
 
+set(CURSES_NEED_NCURSES TRUE)
+
 add_library(${LIB}
     STATIC
     Display.cpp
+    Layout.cpp
     Tools.cpp
     Window.cpp
 )
@@ -14,6 +17,7 @@ include_directories(${CURSES_INCLUDE_DIR})
 
 target_link_libraries(${LIB}
 	${CURSES_LIBRARY}
+	-lpanel
 )
 
 target_include_directories(${LIB}
