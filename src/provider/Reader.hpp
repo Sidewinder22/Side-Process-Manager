@@ -26,13 +26,6 @@ public:
 
 private:
     static constexpr auto valueRegex = ":|\n";
-    // C++20
-    static constexpr std::array<std::string, 4> names_ {
-        "Name",
-        "State",
-        "Pid",
-        "Threads"
-    };
 
     void readParams();
     ProcessData constructProcessData();
@@ -40,6 +33,7 @@ private:
     std::vector<std::pair<std::string, std::string>> params_;
     std::string filePath_;
     std::ifstream file_;
+    std::array<std::string, 4> names_;
 };
 
 }  // namespace provider
