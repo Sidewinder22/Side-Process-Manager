@@ -17,6 +17,12 @@ namespace provider {
 
 Reader::Reader(std::filesystem::path filePath)
     : filePath_(filePath)
+    , names_({
+             "Name",
+             "State",
+             "Pid",
+             "Threads"
+         })
 {
     file_.open(filePath_, std::ifstream::in);
 

@@ -17,24 +17,24 @@ int main()
 	std::unique_ptr<provider::ProcessDataProvider> provider;
 	auto data = provider->getProcessesData();
 
-	std::unique_ptr<ui::console::Display> console;
+//	std::unique_ptr<ui::console::Display> console;
 
-	console->show();
+//	console->show();
 
-//    std::cout
-//        << "|  PID  |  "
-//        << "|  NAME  |  "
-//        << "|  STATE  |  "
-//        << "|  THREADS  |\n";
-//
-//	for( auto&& d: data)
-//	{
-//	    std::cout
-//	        << "| " << d.getPId()
-//	        << " | " << common::convertStateToString(d.getProcessState())
-//	        << " | " << d.getNumberOfThreads()
-//	        << " | " << d.getProcessName() << " |\n";
-//	}
+    std::cout
+        << "|  PID  |  "
+        << "|  NAME  |  "
+        << "|  STATE  |  "
+        << "|  THREADS  |\n";
+
+    for( auto&& d: data)
+    {
+        std::cout
+            << "| " << d.getPId()
+            << " | " << common::convertStateToString(d.getProcessState())
+            << " | " << d.getNumberOfThreads()
+            << " | " << d.getProcessName() << " |\n";
+    }
 
 	/*
 	std::thread t(
